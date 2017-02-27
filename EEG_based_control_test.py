@@ -100,8 +100,8 @@ with tf.name_scope('inputs'):
 
         }
         #these is for thetensorboard, it won't influence the code's work.
-        layer_name='layer'
-        tf.histogram_summary(layer_name + '/weights', weights)
+        # layer_name='layer'
+        # tf.histogram_summary(layer_name + '/weights', weights)
     with tf.name_scope('biases'):
         biases = {
             # (128, )
@@ -112,7 +112,7 @@ with tf.name_scope('inputs'):
             # (10, )
             'out': tf.Variable(tf.constant(0.1, shape=[n_classes ]), name="biases_out")
         }
-        tf.histogram_summary("layer" + 'biases', biases)
+        # tf.histogram_summary("layer" + 'biases', biases)
 
 
 pred, layer1,layer2, layer3,layer4,layer5 = RNN(x, weights, biases)

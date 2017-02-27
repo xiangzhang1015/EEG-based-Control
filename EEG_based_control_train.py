@@ -107,37 +107,35 @@ n_hidden4_units=nodes
 n_classes = 6      # MNIST classes (0-9 digits)
 
 # tf Graph input
-with tf.name_scope('inputs'):
-    x = tf.placeholder(tf.float32, [None,  n_inputs],name="features")
-    # x = tf.placeholder(tf.float32, [None, n_steps, n_inputs], name="features")
-    y = tf.placeholder(tf.float32, [None, n_classes],name="label")
 
-    # Define weights
-    with tf.name_scope('weights'):
-        weights = {
-            # (28, 128)
-            'in': tf.Variable(tf.random_normal([n_inputs, n_hidden1_units]), trainable=True,name="weights_in"),
-            #(128,128)
-            'hidd2': tf.Variable(tf.random_normal([n_hidden1_units, n_hidden2_units]), name="weights_hidd2"),
-            'hidd3': tf.Variable(tf.random_normal([n_hidden2_units, n_hidden3_units]), name="weights_hidd3"),
-            'hidd4': tf.Variable(tf.random_normal([n_hidden3_units, n_hidden4_units]), name="weights_hidd4"),
-            # (128, 10)
-            'out': tf.Variable(tf.random_normal([n_hidden4_units, n_classes]), trainable=True,name="weights_out"),
-        }
-        layer_name='layer'
-        tf.histogram_summary(layer_name + '/weights', weights)
-    with tf.name_scope('biases'):
-        biases = {
-            # (128, )
-            'in': tf.Variable(tf.constant(0.1, shape=[n_hidden1_units]),trainable=True, name="biases_in"),
-            #(128,)
-            'hidd2': tf.Variable(tf.constant(0.1, shape=[n_hidden2_units ]), name="biases_hidd2"),
-            'hidd3': tf.Variable(tf.constant(0.1, shape=[n_hidden3_units]), name="biases_hidd3"),
-            'hidd4': tf.Variable(tf.constant(0.1, shape=[n_hidden4_units]), name="biases_hidd4"),
-            # (10, )
-            'out': tf.Variable(tf.constant(0.1, shape=[n_classes ]), trainable=True,name="biases_out")
-        }
-        tf.histogram_summary("layer" + 'biases', biases)
+x = tf.placeholder(tf.float32, [None,  n_inputs],name="features")
+# x = tf.placeholder(tf.float32, [None, n_steps, n_inputs], name="features")
+y = tf.placeholder(tf.float32, [None, n_classes],name="label")
+
+# Define weights
+
+weights = {
+    # (28, 128)
+    'in': tf.Variable(tf.random_normal([n_inputs, n_hidden1_units]),name="weights_in"),
+    #(128,128)
+    'hidd2': tf.Variable(tf.random_normal([n_hidden1_units, n_hidden2_units]), name="weights_hidd2"),
+    'hidd3': tf.Variable(tf.random_normal([n_hidden2_units, n_hidden3_units]), name="weights_hidd3"),
+    'hidd4': tf.Variable(tf.random_normal([n_hidden3_units, n_hidden4_units]), name="weights_hidd4"),
+    # (128, 10)
+    'out': tf.Variable(tf.random_normal([n_hidden4_units, n_classes]), name="weights_out"),
+}
+
+biases = {
+    # (128, )
+    'in': tf.Variable(tf.constant(0.1, shape=[n_hidden1_units]),name="biases_in"),
+    #(128,)
+    'hidd2': tf.Variable(tf.constant(0.1, shape=[n_hidden2_units ]), name="biases_hidd2"),
+    'hidd3': tf.Variable(tf.constant(0.1, shape=[n_hidden3_units]), name="biases_hidd3"),
+    'hidd4': tf.Variable(tf.constant(0.1, shape=[n_hidden4_units]), name="biases_hidd4"),
+    # (10, )
+    'out': tf.Variable(tf.constant(0.1, shape=[n_classes ]), name="biases_out")
+}
+
 
 
 
