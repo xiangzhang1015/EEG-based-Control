@@ -116,12 +116,10 @@ with tf.name_scope('inputs'):
 
 
 pred, layer1,layer2, layer3,layer4,layer5 = RNN(x, weights, biases)
-lamena =0.004
-l2 = lamena * sum(tf.nn.l2_loss(tf_var) for tf_var in tf.trainable_variables())  # L2 loss prevents this overkill neural network to overfit the data
+l2 = lameda * sum(tf.nn.l2_loss(tf_var) for tf_var in tf.trainable_variables())  # L2 loss prevents this overkill neural network to overfit the data
 cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(pred, y)) + l2  # Softmax loss
 tf.scalar_summary('loss', cost)
 
-lr=0.005
 train_op = tf.train.AdamOptimizer(lr).minimize(cost)
 pred_result =tf.argmax(pred, 1)
 label_true =tf.argmax(y, 1)

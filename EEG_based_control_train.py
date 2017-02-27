@@ -20,8 +20,6 @@ def RNN(X, weights, biases):
     # X= tf.transpose(X, [1, 0, 2])
     # X = tf.reshape(X, [-1, n_inputs])
 
-
-
     X_hidd1 = tf.sigmoid(tf.matmul(X, weights['in']) + biases['in'])##to make the difference bigger, I add sigmoid function
 
     X_hidd2 = tf.matmul(X_hidd1, weights['hidd2']) + biases['hidd2']
@@ -51,8 +49,8 @@ def RNN(X, weights, biases):
 
 #EEG eegmmidb person dependent raw data mixed read
 #
-feature = sc.loadmat("/home/xiangzhang/matlabwork/eegmmidb/S1_nolabel6.mat")
-all = feature['S1_nolabel6']
+feature = sc.loadmat("/home/xiangzhang/matlabwork/eegmmidb/S2_nolabel6.mat")
+all = feature['S2_nolabel6']
 
 print all.shape
 
@@ -80,7 +78,7 @@ a=feature_training
 b=feature_testing
 nodes=64
 lameda=0.004
-lr=0.05
+lr=0.005
 
 batch_size=7000
 train_fea=[]
