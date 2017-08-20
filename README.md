@@ -1,6 +1,6 @@
 # EEG-based-Control
-This repository is the open Python code and EEG data for the submitted KDD paper "Enhancing Mind Controlled Smart Living Through Recurrent
-Neural Networks".
+This repository is the open Python code and EEG data for my publication:
+Xiang Zhang, Lina Yao, Chaoran Huang, QuanZheng Sheng and Xianzhi Wang. Intent Recognition in Smart Living Through Deep Recurrent Neural Networks. The 24th International Conference On Neural Information Processing (ICONIP 2017). Guangzhou, China, Nov 14 - Nov 18, 2017.
 
 "Data.mat" contains 29738 rows, with per row is one EEG sample has 65 elements. The first 64 elements are the 64 channels EEG raw data collected by BCI2000 system, and the last element is the label of the sample in this row.  The EEG database comes from an open database eegmmidb, see the details here:http://www.physionet.org/pn4/eegmmidb/.
 
