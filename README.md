@@ -1,4 +1,5 @@
 # EEG-based-Control
+
 This repository is the open Python code and EEG data for my publication:
 
 Xiang Zhang, Lina Yao, Chaoran Huang, QuanZheng Sheng and Xianzhi Wang. Intent Recognition in Smart Living Through Deep Recurrent Neural Networks. The 24th International Conference On Neural Information Processing (ICONIP 2017). Guangzhou, China, Nov 14 - Nov 18, 2017.
@@ -17,3 +18,7 @@ I uploaded the New_EEG_Control.py code which can run on the GPU. It's hundred ti
 
 Another point I found is that if we add sigmoid function in the first hidden layer, the accuracy increase very fast but can only up to 0.9505 as shown in my paper.
 However, if we don't add the sigmoid function, the accuracy increase slowly but can achieve 0.973 after around 3500 iterations.
+
+NOTE: Some tensorflow commands in the pyton code may not compatible with the up-to-data tensorflow version. Please manually revise the tensorflow code if there's anything error when you run the python code on your own PC.
+If you don't know how to revise it, ask Google.
+
